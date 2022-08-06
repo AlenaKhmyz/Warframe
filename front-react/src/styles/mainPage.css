@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: hsla(0, 0%, 0%, 0.9);
+  font: normal 90px Varela Round, sans-serif;
+  left: 0;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  animation: move linear 2000ms infinite;
+}
+
+@keyframes move {
+  0% {
+    text-shadow: 4px -4px 0 hsla(0, 100%, 50%, 1),
+      3px -3px 0 hsla(0, 100%, 50%, 1), 2px -2px 0 hsla(0, 100%, 50%, 1),
+      1px -1px 0 hsla(0, 100%, 50%, 1), -4px 4px 0 hsla(180, 100%, 50%, 1),
+      -3px 3px 0 hsla(180, 100%, 50%, 1), -2px 2px 0 hsla(180, 100%, 50%, 1),
+      -1px 1px 0 hsla(180, 100%, 50%, 1);
+  }
+  25% {
+    text-shadow: -4px -4px 0 hsla(180, 100%, 50%, 1),
+      -3px -3px 0 hsla(180, 100%, 50%, 1), -2px -2px 0 hsla(180, 100%, 50%, 1),
+      -1px -1px 0 hsla(180, 100%, 50%, 1), 4px 4px 0 hsla(0, 100%, 50%, 1),
+      3px 3px 0 hsla(0, 100%, 50%, 1), 2px 2px 0 hsla(0, 100%, 50%, 1),
+      1px 1px 0 hsla(0, 100%, 50%, 1);
+  }
+  50% {
+    text-shadow: -4px 4px 0 hsla(0, 100%, 50%, 1),
+      -3px 3px 0 hsla(0, 100%, 50%, 1), -2px 2px 0 hsla(0, 100%, 50%, 1),
+      -1px 1px 0 hsla(0, 100%, 50%, 1), 4px -4px 0 hsla(180, 100%, 50%, 1),
+      3px -3px 0 hsla(180, 100%, 50%, 1), 2px -2px 0 hsla(180, 100%, 50%, 1),
+      1px -1px 0 hsla(180, 100%, 50%, 1);
+  }
+  75% {
+    text-shadow: 4px 4px 0 hsla(180, 100%, 50%, 1),
+      3px 3px 0 hsla(180, 100%, 50%, 1), 2px 2px 0 hsla(180, 100%, 50%, 1),
+      1px 1px 0 hsla(180, 100%, 50%, 1), -4px -4px 0 hsla(0, 100%, 50%, 1),
+      -3px -3px 0 hsla(0, 100%, 50%, 1), -2px -2px 0 hsla(0, 100%, 50%, 1),
+      -1px -1px 0 hsla(0, 100%, 50%, 1);
+  }
+  100% {
+    text-shadow: 4px -4px 0 hsla(0, 100%, 50%, 1),
+      3px -3px 0 hsla(0, 100%, 50%, 1), 2px -2px 0 hsla(0, 100%, 50%, 1),
+      1px -1px 0 hsla(0, 100%, 50%, 1), -4px 4px 0 hsla(180, 100%, 50%, 1),
+      -3px 3px 0 hsla(180, 100%, 50%, 1), -2px 2px 0 hsla(180, 100%, 50%, 1),
+      -1px 1px 0 hsla(180, 100%, 50%, 1);
+  }
+}
+
+.added-warframe {
+  margin-bottom: 20px;
+  width: 300px;
+  height: 80px;
+  border: 1px solid rgba(190, 241, 241, 0.873);
+  border-radius: 6%;
+  font: 20px Varela Round, sans-serif;
+  font-weight: bolder;
+  background-color: #000000;
+  color: rgb(178, 244, 244);
+}
+
+.added-warframe:hover {
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  background-color: rgba(190, 241, 241, 0.873);;
+}
+
+.all-warframes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.warframe {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 10px 80px 50px;
+}
+
+.warframe-name {
+  font-size: 52px;
+  text-align: center;
+  font-family: helvetica;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.parts {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 30px 0px;
+}
+
+.part-name {
+  width: 500px;
+}
+
+.warframe-part {
+  margin: 20px 0px 0px 0px;
+  width: 500px;
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: start;
+  font-family: helvetica;
+  text-transform: uppercase;
+  color: #d9d5d5b1;
+}
+
+.active {
+  margin: 20px 0px 0px 0px;
+  font-size: 30px;
+  width: 500px;
+  text-align: start;
+  font-weight: bolder;
+  font-family: helvetica;
+  text-transform: uppercase;
+  color: #d9d5d5;
+}
+
+.relics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.warframe-relic {
+  width: 120px;
+  font-size: 25px;
+  color: rgba(182, 178, 178, 0.595);
+}
+
+.button-mark {
+  height: 8%;
+  width: 3%;
+  border: none;
+  background-color: #000000;
+}
+
+.dont-have {
+  margin: 21px 0px;
+  font-size: 28px;
+  color: rgba(188, 121, 121, 0.735);
+}
+
+.owned {
+  margin: 21px 0px;
+  font-size: 28px;
+  color: rgba(112, 211, 112, 0.673);
+}
+
+.found-relic-name {
+  color: rgba(28, 32, 32, 0.895);
+}
+
+.name-selected-relics {
+  color: white;
+}
