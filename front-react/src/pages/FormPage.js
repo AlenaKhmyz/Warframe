@@ -1,17 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { throttle } from "lodash";
+import { map, throttle } from "lodash";
 
 import "../styles/mainPage.css";
 
 const FormPage = () => {
-  const [show, setShow] = useState(false);
+  const [showRelics, setShowRelics] = useState(false);
   const [foundRelics, setFoundRelics] = useState([]);
   const [term, setTerm] = useState("");
   const [selectedRelics, setSelectedRelics] = useState([]);
 
-  const fieldOpen = () => {
-    setShow(true);
+  const [part, setPart] = useState("")
+  const [showPart, setShowPart] = useState(false)
+
+  const fieldOpenRelics = () => {
+    setShowRelics(true);
+  };
+
+  const fieldOpenPart = () => {
+    setShowPart(true);
   };
 
   const search = async (seacrhTerm) => {
@@ -51,7 +58,7 @@ const FormPage = () => {
     setTerm('')
   };
 
-  const onKeyDown = async (event) => {
+  const onKeyDownForReics = async (event) => {
     if (event.keyCode === 13 && foundRelics.length === 0) {
       const response = await axios.post(`http://localhost:3004/relics`, {
         name: term,
@@ -62,14 +69,36 @@ const FormPage = () => {
        
     }
   }
-  
-   
+
+  const onSaveWarframe = async () => {
+    
+      await axios.post(`http://localhost:3004/primeParts`, {
+        name: part,
+        checked: false,
+        relics: selectedRelics.map((relic) => {
+          return relic.id
+        })
+      }); 
+  }
 
   return (
     <div className="main">
       <h1 className="title">Warframe</h1>
+      <div className="form-parts">
+        <button className="add-part" onClick={fieldOpenPart}>
+            Добавить прайм-часть
+        </button>
+        <div hidden={!showPart}>
+          <input
+            type="text"
+            placeholder="Part"
+            value={part}
+            onChange={(event) => setPart(event.target.value)}
+          />
+        </div>
+      </div>
       <div className="forms-relics">
-        <button className="add-relic" onClick={fieldOpen}>
+        <button className="add-relic" onClick={fieldOpenRelics}>
           Добавить реликвию
         </button>
         {selectedRelics.map((selectedRelic) => (
@@ -77,13 +106,13 @@ const FormPage = () => {
             <p className="name-selected-relics">{selectedRelic.name}</p>
           </div>
         ))}
-        <div hidden={!show}>
+        <div hidden={!showRelics}>
           <input
             type="text"
             placeholder="Search"
             value={term}
             onChange={(event) => setTerm(event.target.value)}
-            onKeyDown={onKeyDown}
+            onKeyDown={onKeyDownForReics}
           />
           <div className="relics-list">
             {foundRelics.map((relic) => (
@@ -99,6 +128,7 @@ const FormPage = () => {
           </div>
         </div>
       </div>
+      <button onClick={onSaveWarframe} className='form-submit'>Сохранить</button>
     </div>
   );
 };

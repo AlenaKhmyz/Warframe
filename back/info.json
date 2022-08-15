@@ -126,6 +126,26 @@
         41,
         42
       ]
+    },
+    {
+      "name": "Рино Каркас",
+      "checked": false,
+      "relics": [
+        null,
+        null,
+        null
+      ],
+      "id": 9
+    },
+    {
+      "name": "Рино Система",
+      "checked": false,
+      "relics": [
+        11,
+        1,
+        3
+      ],
+      "id": 10
     }
   ],
   "relics": [
